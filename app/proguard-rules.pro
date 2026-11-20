@@ -1,0 +1,13 @@
+-keep class com.yausername.** { *; }
+-keep class com.fasterxml.jackson.** { *; }
+-dontwarn com.fasterxml.jackson.**
+-dontwarn org.apache.commons.compress.**
+-keep class androidx.media3.** { *; }
+-keep class org.jsoup.** { *; }
+-dontwarn org.jsoup.**
+-dontwarn com.google.re2j.**
+
+-keep class org.apache.commons.compress.** { *; }
+-keep class org.apache.commons.io.** { *; }
+-keep class com.yausername.** { *; }
+-dontwarn org.apache.commons.**

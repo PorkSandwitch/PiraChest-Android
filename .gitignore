@@ -1,12 +1,27 @@
-.venv/
-__pycache__/
-*.pyc
-*.pyo
-*.log
-.env
-dist/
-build/
-src/__init__.py
-/data
-README.md
-README.md
+# Local machine configuration
+/local.properties
+/.idea/
+*.iml
+
+# Gradle
+.gradle/
+**/build/
+
+# Android build outputs
+/captures/
+/.externalNativeBuild/
+/.cxx/
+*.apk
+*.aab
+*.ap_
+*.dex
+
+# Signing material and local secrets
+*.jks
+*.keystore
+keystore.properties
+secrets.properties
+
+# OS/editor files
+.DS_Store
+Thumbs.db

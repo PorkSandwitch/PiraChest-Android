@@ -1,344 +1,105 @@
-![PiraChest Banner](https://github.com/user-attachments/assets/9ec37694-bbe5-410c-80bb-191f57f63eb1)
+# PiraChest for Android
 
-<p align="center">
-  <a href="https://justrun.is-a.dev/pirachest/"><img src="https://cdn.jsdelivr.net/gh/JMcrafter26/badges@main/src/assets/documentation/website/cozy.svg" alt="Website"></a>
-  <a href="https://discord.gg/kkPbmpgMTF"><img src="https://cdn.jsdelivr.net/gh/JMcrafter26/badges@main/src/assets/social/discord-plural/cozy.svg" alt="Discord"></a>
-</p>
+An Android version of PiraChest, focused on anime and YouTube.
 
-<p align="center">
-  <img src="https://img.shields.io/github/v/release/TheJustRun/PiraChest?label=Stable" alt="Stable Release">
-  <img src="https://img.shields.io/github/v/release/TheJustRun/PiraChest?include_prereleases&label=Canary" alt="Canary Release">
-  <img src="https://img.shields.io/github/downloads/TheJustRun/PiraChest/total?label=Downloads" alt="Total Downloads">
-  <img src="https://img.shields.io/github/stars/TheJustRun/PiraChest?label=Stars" alt="Stars">
-  <img src="https://img.shields.io/github/issues/TheJustRun/PiraChest?label=Issues" alt="Issues">
-  <img src="https://img.shields.io/badge/Status-Stable-green" alt="Stable">
-  <img src="https://img.shields.io/badge/Platform-Windows%20%7C%20Linux%20%7C%20macOS-blue" alt="Windows, Linux and macOS">
-  <img src="https://img.shields.io/badge/License-PolyForm%20Noncommercial-lightgrey" alt="License">
-</p>
+> [!WARNING]
+> **AI-assisted development:** Some parts of this Android project have been updated, debugged, and refactored with the help of freely available AI models and tools. AI-generated suggestions were used during development, so the code may still contain mistakes or unfinished work. Please review changes, test the app, and report anything that does not work as expected.
 
-**PiraChest is an all-in-one app for Windows, Linux and macOS: games, ROMs, music, anime, manga, movies, TV, downloads, torrents, and a whole lot of customization.**
+This project is an **Android adaptation based on [TheJustRun/PiraChest](https://github.com/TheJustRun/PiraChest)**. It is not the original desktop application and is not an official release from the original maintainer. The Android code has been adapted for Kotlin, Android, and Jetpack Compose, with a narrower feature set.
 
-The idea is simple: stop jumping between a million different apps and websites when you can have the stuff you actually use in one place.
+## What it supports
 
-And yes, you can customize the hell out of it.
+This build currently focuses on two content areas:
 
-<img src="https://cdn.jsdelivr.net/gh/JMcrafter26/badges@main/src/assets/built-with/python/cozy.svg" alt="madewithpython">
+- **Anime** – discover anime, browse available episodes, find playable streams through the integrated providers, and download supported episodes.
+- **YouTube** – inspect supported YouTube links and download video or audio, with available format and quality options.
 
-## Download
-
-Get the latest build from [GitHub Releases](https://github.com/TheJustRun/PiraChest/releases).
-
-[![Download](https://img.shields.io/badge/Download-Latest%20Release-brightgreen?style=for-the-badge)](https://github.com/TheJustRun/PiraChest/releases)
-
-| Platform | Formats |
-| --- | --- |
-| Windows (x64) | Installer (`.msi`), Portable (`.zip`), Chocolatey |
-| Linux (x64, arm64) | Debian package (`.deb`), Portable (`.tar.gz`) |
-| macOS (Apple Silicon, Intel) | Disk image (`.dmg`), Portable (`.zip`) |
-
-Linux `.deb` packages install under `/opt` and are managed by your package manager (they do not self-update). Extracted `.tar.gz` builds, portable ZIPs, DMGs and the Windows portable build keep the built-in updater.
-
-macOS builds are ad-hoc signed, not notarized. On first launch, allow the app in **System Settings → Privacy & Security → Open Anyway**, or run:
-
-```bash
-xattr -dr com.apple.quarantine /Applications/PiraChest.app
-```
-
-Chocolatey support is out, installing it is as simple as:
-For pre-releases (Canary)
-```powershell
-choco install pirachest --pre
-```
-For stable releases (Stable requires manual approval by Chocolatey, so don't be surprised if some releases come late or don't work through it)
-```powershell
-choco install pirachest 
-```
+Other download categories from the desktop project are not part of this Android version. At the moment, anime and YouTube are the only supported download sections.
 
 ## Features
 
-### Home
+- Anime discovery and catalogue information through AniList.
+- Episode browsing and stream selection from the providers included in the app.
+- Anime episode downloads when a compatible source is available.
+- YouTube link inspection and video/audio downloads using **yt-dlp**.
+- **FFmpeg** integration for media processing and supported format handling.
+- Download queue with progress information and download history.
+- Local playback for downloaded videos.
+- Playback controls, picture-in-picture support, and screen-off playback handling where supported by Android.
+- Settings for app appearance and playback/download preferences.
 
-There's a new Home page that acts as a central starting point for discovering content and getting to the main parts of PiraChest.
+Provider availability can change. A source may stop working or return different streams without an app update, and results depend on the source website and your network connection.
 
-### Sailseek
+## A note about content
 
-A fast global search system that lets you search across the content and functionality PiraChest offers from one compact interface: movies, shows, games, music, anime, manga, settings, and more. Result cards show relevant metadata like artwork, name, source, and date where available. There's a customizable keyboard shortcut for opening it too.
+PiraChest does not host media or store a catalogue of hosted videos. It works with information and media sources provided by third-party services and websites.
 
-### ROMs
+Please respect copyright, the terms of the sites you use, and the laws that apply where you live. You are responsible for how you use the app and for the content you access or download.
 
-A local SQLite-indexed catalog covering **70+ console platforms**. Filters include:
+## Installation
 
-* No-Intro, Redump, and TOSEC
-* Retail games and BIOS files
-* Demos, prototypes, and homebrew
-* Encrypted and decrypted ROMs
+Download the APK from the repository's **Releases** page when a release is available.
 
-Because manually sorting thousands of ROMs sounds like a fantastic way to waste an entire weekend.
+The release build is configured for `arm64-v8a` devices. The minimum supported Android version is Android 8.0 (API 26). Android may ask you to allow installation from your browser or file manager when installing an APK manually.
 
-### PC Game Repacks
+## Build from source
 
-Browse games in a grid, check game details, look at upcoming releases, and choose which files to download.
+### Requirements
 
-* Grid view and game details
-* Upcoming games page
-* Selective downloads
-* Torrent integration
+- Android Studio with Android Gradle Plugin 8.10.1 support
+- JDK 17
+- Android SDK Platform 36
+- Gradle 8.11.1
+- An Android device or emulator (API 26 or newer)
 
-### Music
+### Steps
 
-Search for music, play tracks, choose audio quality, and customize the lyrics panel.
+1. Clone the repository:
 
-### Manga and Books
+   ```bash
+   git clone https://github.com/YOUR-USERNAME/PiraChest-Android.git
+   cd PiraChest-Android
+   ```
 
-Browse manga and books from available sources. Manga is considerably more developed; books are limited because finding reliable sources is a pain.
+2. Open the project in Android Studio.
+3. Install Android SDK Platform 36 if Android Studio prompts you to.
+4. Set the Gradle JDK to Java 17 and sync the project.
+5. Run the `app` configuration, or build an APK from the Build menu.
 
-### Movies, TV Shows, IPTV and Anime
+The repository does not include `local.properties`; Android Studio creates this file for your local SDK installation. Do not commit your own `local.properties` file.
 
-Browse and watch movies, TV shows, series, anime, and TV channels with metadata and details. Playback works now, and Watch Later is supported.
+### Release builds
 
-Vyla is built in for movie and show streams. PiraChest downloads a private Node.js runtime and the SDK dependencies on first use, so there is no separate SDK to install. DASH downloads use FFmpeg, if it is missing, PiraChest offers to download it before starting the download. PiraChest also has torrent support, you can select between direct or torrent sources.
+A release APK must be signed with your own release keystore. Do not use a debug key for a public release. Test the signed APK on a physical device before distributing it.
 
-### YouTube
+## Tech stack
 
-Download videos or audio with metadata and quality selection.
+- Kotlin
+- Jetpack Compose and Material 3
+- AndroidX Media3 for playback
+- yt-dlp through the `youtubedl-android` library
+- FFmpeg through the `youtubedl-android` FFmpeg package
+- OkHttp and Jsoup for network and page handling
+- AniList for anime catalogue information
 
-### The Black Hole Bay (TBHB)
+## Project status
 
-TBHB is currently the only torrent aggregator integrated into PiraChest, with its own dedicated page. More aggregators are planned.
+**Version:** `0.1.0`
 
-### Download Manager
-
-* Drag-and-drop queue reordering
-* Live download speed and progress
-* Seeding statistics
-* Per-download settings
-* Pause, resume, retry, and cancel
-* Persistent downloads between sessions
-
-### Torrent Engine
-
-* Selective file downloading
-* Persistent queue
-* Pause, resume, retry, and cancel
-* Download and upload speed limits
-* Peer limits
-* Seeding ratio and time limits
-* Force recheck
-* Many details 
-
-### Customization
-
-This is one of the things I care about most. I don't want you stuck with the same interface everyone else has.
-
-You can customize things like:
-
-* Themes and interface styling
-* GPU shaders
-* Photos and images
-* GIFs and videos
-* Custom title bars
-* Sounds and icons
-* Application backgrounds (with blur and darkness controls)
-* Other visual details
-
-Themes can now control their own appearance independently instead of being stuck to the global accent color, and they can follow your accent color if you want. They can also bring their own configurable settings, custom icons, images, GIFs, videos, and GPU shaders. Want to share your theme or show off what you've made? There's a [Discord server](https://discord.gg/kkPbmpgMTF) for that. Guides and documentation are on the [website](https://justrun.is-a.dev/pirachest/).
-
-## Roadmap
-
-Stuff that's done, stuff that's planned, and stuff that might take longer than I'd like.
-
-* [x] ROM catalog and platform filters
-* [x] PC game repacks browsing
-* [x] Upcoming games page
-* [x] Selective downloads
-* [x] Music search and playback
-* [x] Anime browsing and downloads
-* [x] YouTube downloads
-* [x] Download manager
-* [x] Torrent engine
-* [x] The Black Hole Bay integration
-* [x] Advanced customization
-* [x] Chocolatey support
-* [ ] One unified Torrenting page
-* [ ] Multiple torrent aggregators as tabs
-* [ ] More fixes, improvements, and features
-
-> [!IMPORTANT]
-> A checked box means the feature is implemented, not that it's flawless. And an unchecked box doesn't mean it'll magically appear next Tuesday.
-
-## Screenshots
-
-### Home
-
-![Home](https://github.com/user-attachments/assets/63da344d-f6d1-4155-ba71-37446c2386f8)
-
-### Sailseek
-
-![Sailseek](https://github.com/user-attachments/assets/22b1c541-5fbc-4941-ac78-e52fac67b7f5)
-
-### PC Game Repacks
-
-![Repacks](https://github.com/user-attachments/assets/87745b5d-50af-4b9a-be20-c4f91e2dda29)
-
-![Repacks Selective Download](https://github.com/user-attachments/assets/eb7b18a3-0772-42c5-b649-abc208a83a6f)
-
-![Repacks Details](https://github.com/user-attachments/assets/76336ec8-4e68-4512-9b01-f602e551429c)
-
-![Repack Sources](https://github.com/user-attachments/assets/224a4474-69c0-422b-8c43-60e8d32fc1bc)
-
-![GOG](https://github.com/user-attachments/assets/29680df6-3954-44ce-b4af-d0b793eeedff)
-
-![Upcoming](https://github.com/user-attachments/assets/e3b07b4c-7c93-43b4-8321-5bfb226ba71c)
-
-### Music
-
-![Music](https://github.com/user-attachments/assets/ee4cd666-7cb0-4b56-8c6d-57540bc6b24b)
-
-### Minerva
-
-![Minerva](https://github.com/user-attachments/assets/bf773d12-1a87-48dd-8171-22c6ff44104b)
-
-### Downloads
-
-![Downloads](https://github.com/user-attachments/assets/9e48aff8-474f-4bf0-8586-1f19eb32a91b)
-
-### Books
-
-![Books](https://github.com/user-attachments/assets/3c5b7893-e5b5-4a79-a2a9-274199d9d261)
-
-### Settings
-
-![Settings](https://github.com/user-attachments/assets/b5ba2962-207a-4864-bdc8-21257c4b8cdb)
-
-### YouTube
-
-![YouTube](https://github.com/user-attachments/assets/d5036c06-b8d8-4c61-a9de-8388eb168ac1)
-
-### Movies and TV
-
-![TV](https://github.com/user-attachments/assets/464ca861-de93-43fa-8cf3-1a4a6a78a21b)
-
-### The Black Hole Bay (TBHB)
-
-![TBHB Search](https://github.com/user-attachments/assets/9e9e07d8-50b1-466b-8972-728c8d333ab3)
-
-![TBHB Results](https://github.com/user-attachments/assets/fff44a0a-97e0-4659-a635-dcda5c718809)
-
-## Current Limitations
-
-PiraChest is in beta. Here's what isn't ready yet:
-
-* Debrid support is unfinished and needs testing.
-* Book support is not yet available.
-* TBHB is currently the only integrated torrent aggregator.
-* Some parts of the app are still rough or incomplete.
-
-That's the honest version. I'd rather tell you what's missing than pretend everything is finished.
-
-## Privacy
-
-> [!IMPORTANT]
-> **PiraChest itself collects no personal data and sends no telemetry.** No built-in analytics tracking what you do, no usage reports sent back to me. Your app activity isn't being secretly shipped off to the developer.
-
-There is a difference between PiraChest itself and the services it connects to, though.
-
-* External websites and services may log your IP address, requests, and other information needed to provide their services.
-* Your ISP can see network activity and may be subject to local laws and data-retention requirements.
-* Downloading or accessing something through PiraChest doesn't make that activity invisible.
-
-> [!CAUTION]
-> **PiraChest is not a VPN, proxy, or anonymity tool.** It does not hide you from your ISP, your government, or copyright enforcement. It does not protect you from copyright law, and it does not make illegal activity legal.
->
-> Your connection is still your connection. Don't confuse an app that collects no telemetry with an app that makes you anonymous.
-
-## AI-Assisted Development
-
-This app has been AI-assisted using a local LLM (Qwen 3.6 35B) and other very limited free-tier AIs to help with the backend, stress testing, and polish. Without it, I probably wouldn't have gotten the torrent per-file downloading system working, and I would've shot myself dead.
-tho things can break or introduce issues, that's why I don't rely on it a lot.
-
-## Your Contribution is VERY welcome
-Your contributions are needed and are very welcome no matter what or how. Contributions from localization (it's insanely easy, you just make a new JSON, change the name, and the app will pick it up automatically). I'm not proud of using AI-generated localizations for most of the app, I'm sorry and am planning to change that, but I need you, and also contributions such as donations, word of mouth, and all are welcome and appreciated.
-
-
-## Support PiraChest
-
-If you find PiraChest useful, consider supporting its development.
-
-<table>
-  <tr>
-    <td align="center" width="33%">
-      <strong>Bitcoin (BTC)</strong><br><br>
-      <img src="https://github.com/user-attachments/assets/5d4220bc-2a6d-4eba-ac21-b92b10430380" width="140" alt="Bitcoin donation QR code"><br>
-      <code>bc1qkghdq757u9lwntjr3029ljg3phwv9yffj926vv</code>
-    </td>
-    <td align="center" width="33%">
-      <strong>Ethereum (ETH)</strong><br><br>
-      <img src="https://github.com/user-attachments/assets/499a6be1-158a-434e-8727-93f3788ab8cc" width="140" alt="Ethereum donation QR code"><br>
-      <code>0xD8e4d1408aF248B97C2cdCe85afbeD83e61Cc3f8xv</code>
-    </td>
-    <td align="center" width="33%">
-      <strong>Litecoin (LTC)</strong><br><br>
-      <img src="https://github.com/user-attachments/assets/ed9ed961-90dd-4a2d-8893-e49eaa45f5f7" width="140" alt="Litecoin donation QR code"><br>
-      <code>Lb3qSpBgc8Bb1xAnBKpPvuCSEwFjMNeuPm</code>
-    </td>
-  </tr>
-  <tr>
-    <td align="center" width="33%">
-      <strong>Solana (SOL)</strong><br><br>
-      <img src="https://github.com/user-attachments/assets/0dec7f9c-4537-410b-8972-7d62be2e9240" width="140" alt="Solana donation QR code"><br>
-      <code>Fe1JqgUTPkq45r7aSx9BYtz2nAbH6cPMSWztBJYu7Mc8</code>
-    </td>
-    <td align="center" width="33%">
-      <strong>USD Coin (USDC)</strong><br><br>
-      <img src="https://github.com/user-attachments/assets/ab47780b-b9cb-4e34-879b-3a104713d0ee" width="140" alt="USDC donation QR code"><br>
-      <code>0xD8e4d1408aF248B97C2cdCe85afbeD83e61Cc3f8</code>
-    </td>
-    <td align="center" width="33%">
-      <strong>Tether (USDT)</strong><br><br>
-      <img src="https://github.com/user-attachments/assets/27570992-d974-42dc-82fc-79ea8be60f42" width="140" alt="USDT donation QR code"><br>
-      <code>0xD8e4d1408aF248B97C2cdCe85afbeD83e61Cc3f8</code>
-    </td>
-  </tr>
-</table>
-
-**Please verify the cryptocurrency and network before sending.** USDC and USDT may use different networks, even when the receiving address is identical.
-
-Donations are optional. You don't have to pay anything to use PiraChest.
+This is an early Android release. Some features may be incomplete, and third-party source changes can affect stream discovery and downloads. If you find a bug, please open an issue with your Android version, device model, the steps to reproduce it, and relevant logs. Avoid posting private information or account tokens.
 
 ## Credits
 
-* **Logo:** [spicysaltysparty](https://www.reddit.com/user/spicysaltysparty/)
-* **Torrent engine:** [libtorrent 2.1](https://www.libtorrent.org/)
+- **Original project:** [PiraChest by TheJustRun](https://github.com/TheJustRun/PiraChest) – the project this Android adaptation is based on.
+- **yt-dlp** – YouTube media extraction.
+- **FFmpeg** – media processing.
+- **AniList** – anime catalogue data.
+- The developers and maintainers of the libraries listed in the project dependencies.
+
+This repository is maintained separately from the original desktop project. Please report Android-specific issues here; issues with the original desktop application should be reported to its [upstream repository](https://github.com/TheJustRun/PiraChest).
 
 ## License
 
-PiraChest uses the **[PolyForm Noncommercial License 1.0.0](https://polyformproject.org/licenses/noncommercial/1.0.0)**. The `LICENSE` file is included in the repository.
+This Android adaptation is based on the original PiraChest project, which is licensed under the **PolyForm Noncommercial License 1.0.0**. This project follows the same license for the portions derived from or covered by the upstream project. The license does not grant permission for commercial use. Check the license terms before using, modifying, or redistributing this project.
 
-You can use, modify, and share the project under the license terms. **Commercial use requires separate permission.**
-
-> [!IMPORTANT]
-> If you want to use PiraChest commercially, read the license and get permission first. Don't just assume it's fine.
-
-## Disclaimer
-
-PiraChest does not host, upload, or distribute copyrighted content itself. It provides tools that interact with third-party websites, sources, and services.
-
-I'm not encouraging piracy or copyright infringement. You're responsible for what you access, download, and do with the software, and for following the laws that apply where you live.
-
-> [!WARNING]
-> PiraChest doesn't magically erase the law because you clicked a button in an app. Use your brain, check your local laws, and understand what you're doing.
->
-> If you misuse the software, **that's your responsibility. Fuck you.**
-
-
-## Project Stats
-
-<p align="center">
-  <img src="https://img.shields.io/github/stars/TheJustRun/PiraChest?style=for-the-badge&logo=github&label=Stars" />
-  <img src="https://img.shields.io/github/forks/TheJustRun/PiraChest?style=for-the-badge&logo=git&label=Forks" />
-  <img src="https://img.shields.io/github/downloads/TheJustRun/PiraChest/total?style=for-the-badge&logo=github&label=Downloads" />
-</p>
-
-<p align="center">
-  <img src="https://api.star-history.com/svg?repos=TheJustRun/PiraChest&type=Date" width="100%" />
-</p>
+Some third-party libraries and components may be distributed under their own licenses. Those remain subject to their respective license terms.
